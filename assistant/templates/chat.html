@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="user_input" id="user_input" />
+  <input type="submit" value="Send" />
+</form>
+
+<div id="chat_history">
+  {% for entry in chat_history %}
+  <p>User: {{ entry.0 }}</p>
+  <p>ChatBot: {{ entry.1 }}</p>
+  {% endfor %}
+</div>
+{% endblock content %}
